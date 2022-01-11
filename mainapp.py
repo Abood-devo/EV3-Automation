@@ -31,9 +31,9 @@ expected_speechEXIT = ["exit", "close", "exit program", "close program", "stop",
 instructionsSAY_SOMETHONG = open("say_something.py", 'r').read()
 instructionsMOVE_FORWARD = open("move_forward.py", 'r').read()
 instructionsMOVE_BACKWARD = open("move_backward.py", 'r').read()
-instructionsROTATE_RIGHT = open("rotate_clockwise.py", 'r').read()
-instructionsROTATE_LEFT = open("rotate_anticlockwise.py", 'r').read()
-ev3_pyfile = 'main.py'
+instructionsROTATE_RIGHT = open("rotate_right.py", 'r').read()
+instructionsROTATE_LEFT = open("rotate_left.py", 'r').read()
+ev3_pyfile = 'ev3brick.py'
 stop_condition = True
 
 # escape sequences used to color the output
@@ -57,7 +57,7 @@ def instructions_creator(py_file_path, code):
 def comparator(expected_speech, rec_speech, instructions):
     for speech in expected_speech:
         if rec_speech == speech:
-            instructions_creator('main.py', instructions)
+            instructions_creator('ev3brick.py', instructions)
 
 
 # recognize speech using Google Speech Recognition
