@@ -4,7 +4,7 @@
 ## About 
 >The idea behind this project is to make the lego ev3 robot do actions using voice 
 >e,g moving forward or even more complex things like measuring a distance between two 
->points this is the initial project (first version) feel free to help me to make it better🤞🤞
+>points this is the initial project (first version) feel free help me to make it better🤞🤞
 
 ## Exiecution steps
 >- Record audio, it keeps recording until you stop talking
