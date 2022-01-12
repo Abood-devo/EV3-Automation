@@ -7,10 +7,11 @@
 >points this is the initial project (first version) feel free help me to make it better🤞🤞
 
 ## Exiecution steps
+>- Exiecute (mainapp.py)
 >- Record audio, it keeps recording until you stop talking
 >- Then the audio file will be sent to Google servers to analyze the speech and return text  
 >- Comparing the text with the predefined list of an expected speech
->- Extracting the main.py file that contains the instructions for the robot
+>- Extracting the ev3brick.py file that contains the instructions for the robot
 
 ## Requirements 
 > -Speech recognition package
@@ -27,6 +28,6 @@ and then running `pip install "whl file name"` for more details visit this [site
 ## Sample output
 > ![sample output](https://github.com/Abood-devo/Abood-devo/blob/main/images/sample%20output.png)
 
-**The main file that the robot should operate after saying 'mr. robot move forward'**
+**The ev3brick file that the robot should operate after saying 'mr. robot move forward'**
 
-![main file](https://github.com/Abood-devo/Abood-devo/blob/main/images/output%20file.png)
+![ev3brick file](https://github.com/Abood-devo/Abood-devo/blob/main/images/output%20file.png)
