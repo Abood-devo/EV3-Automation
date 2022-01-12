@@ -50,7 +50,7 @@ reco = speechrec.Recognizer()
 def instructions_creator(py_file_path, code):
     py_file = open(py_file_path, 'x')
     py_file.write(code)
-    print(f"{green}\nthe main.py file is successfully extracted{end}")
+    print(f"{green}\nthe ev3brick.py file is successfully extracted{end}")
     py_file.close()
 
 
