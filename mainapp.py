@@ -23,9 +23,9 @@ expected_speechROTATE_LEFT = ["mr. robot rotate left", "rotate left", "the robot
                               "the robot rotate left", "rotate to the left", "mr. robot rotate to the left",
                               "the robot rotate to the left"]
 
-expected_speechEXIT = ["exit", "close", "exit program", "close program", "stop", "stop program", "shut down",
-                       "shut down program", "stop the program"]
-
+expected_speechEXIT = ["mr. robot stop the program", "exit", "close", "exit program", "close program", "stop",
+                       "stop program", "shut down", "shut down program", "stop the program"]
+                       
 
 # this is the set of codes that the robot going to execute
 instructionsSAY_SOMETHONG = open("say_something.py", 'r').read()
@@ -83,6 +83,7 @@ while stop_condition:
     try:
         for speech in expected_speechEXIT:
             if recognized_speech == speech:
+                print(f"\n**{red}the program has been stoped{end}**")
                 stop_condition = False
     except NameError:
         continue

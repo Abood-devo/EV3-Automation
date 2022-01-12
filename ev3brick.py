@@ -12,8 +12,8 @@ robot = DriveBase(left_wheel, right_wheel, wheel_diameter=56, axle_track=104)
 gyro = GyroSensor(Port.S1)
 
 # Write your program here.
-while robot.distance() > -100:
-    robot.drive(-500, 0)
+while robot.distance() < 100:
+    robot.drive(500, 0)
 robot.stop()
 left_wheel.brake()
 right_wheel.brake()
