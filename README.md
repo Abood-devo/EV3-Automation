@@ -27,7 +27,7 @@ and then running `pip install "whl file name"` for more details visit this [site
 >- You can send the file to the brick using bluetooth and run it.
 
 ## Sample output
-> ![sample output](https://github.com/Abood-devo/EV3-Automation/blob/main/images/sample.png)
+> ![sample output](https://github.com/Abood-devo/EV3-Automation/blob/main/images/sample output.png)
 
 **The ev3brick file that the robot should operate after saying 'mr. robot move forward'**
 
