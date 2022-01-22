@@ -1,5 +1,5 @@
-- EV3 autmation project. 
-- reach me on twitter: adfd_2
+- EV3 automation project. 
+- reach me on Twitter: adfd_2
 
 ## About 
 >The idea behind this project is to make the lego ev3 robot do actions using voice 
@@ -14,12 +14,12 @@ you can install it by running this command
 
 > - PyAudio
 
-Unfortunately the pyaudio package can't be installed using pip IDK why
+Unfortunately the pyaudio package can't be installed using pip IDK why,
 but you can install it manually by first downloading the `whl` file 
 and then running `pip install "whl file name"` for more details visit this [site](https://stackoverflow.com/a/55630212)
 
-## Exiecution steps
->- Exiecute (mainapp.py)
+## Execution steps
+>- Execute (mainapp.py)
 >- Recording audio will start, it keeps recording until you stop talking.
 >- Then the audio file will be sent to Google servers to analyze the speech and return text.  
 >- Comparing the text with the predefined list of an expected speech.

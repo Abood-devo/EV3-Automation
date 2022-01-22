@@ -1,5 +1,4 @@
 import speech_recognition as speechrec
-import os
 
 # The speech that is expected to be said some speech in the lists
 # is not relevant it's there to minimize the errors
@@ -27,15 +26,6 @@ expected_speechEXIT = ["mr. robot stop the program", "exit", "close", "exit prog
                        "stop program", "shut down", "shut down program", "stop the program"]
                        
 
-# this is the set of codes that the robot going to execute
-instructionsSAY_SOMETHONG = open("say_something.py", 'r').read()
-instructionsMOVE_FORWARD = open("move_forward.py", 'r').read()
-instructionsMOVE_BACKWARD = open("move_backward.py", 'r').read()
-instructionsROTATE_RIGHT = open("rotate_right.py", 'r').read()
-instructionsROTATE_LEFT = open("rotate_left.py", 'r').read()
-ev3_pyfile = 'ev3brick.py'
-stop_condition = True
-
 # escape sequences used to color the output
 end = "\033[0m"
 cyan = "\033[36m"
@@ -61,42 +51,17 @@ def comparator(expected_speech, rec_speech, instructions):
 
 
 # recognize speech using Google Speech Recognition
-while stop_condition:
-    with speechrec.Microphone() as source:
-        print("Speak!")
-        audio = reco.adjust_for_ambient_noise(source)
-        audio = reco.listen(source)
-        print(f"\n{green}got the audio{end}\n")
-    try:
-        recognized_speech = reco.recognize_google(audio)
-        recognized_speech = recognized_speech.lower()
-        print(f"{cyan}Recognized Speech: {recognized_speech}{end}")
+with speechrec.Microphone() as source:
+    print("Speak!")
+    audio = reco.adjust_for_ambient_noise(source)
+    audio = reco.listen(source)
+    print(f"\n{green}got the audio{end}\n")
+try:
+    recognized_speech = reco.recognize_google(audio)
+    recognized_speech = recognized_speech.lower()
+    print(f"{cyan}Recognized Speech: {recognized_speech}{end}")
 
-    except speechrec.UnknownValueError:
-        print(f"**{red}Google Speech Recognition could not understand audio{end}**")
-        continue
-    except speechrec.RequestError as e:
-        print(f"**{red}Could not request results from Google Speech Recognition service{end}**")
-
-    # loop for comparing the recognized speech and making the decision
-    # of what instruction should be extracted for the robot
-    try:
-        for speech in expected_speechEXIT:
-            if recognized_speech == speech:
-                print(f"\n**{red}the program has been stoped{end}**")
-                stop_condition = False
-    except NameError:
-        continue
-    while True:
-        try:
-            comparator(expected_speechSAY_SOMETHING, recognized_speech, instructionsSAY_SOMETHONG)
-            comparator(expected_speechMOVE_FORWARD, recognized_speech, instructionsMOVE_FORWARD)
-            comparator(expected_speechMOVE_BACKWARD, recognized_speech, instructionsMOVE_BACKWARD)
-            comparator(expected_speechROTATE_RIGHT, recognized_speech, instructionsROTATE_RIGHT)
-            comparator(expected_speechROTATE_LEFT, recognized_speech, instructionsROTATE_LEFT)
-            break
-        except NameError:
-            break
-        except FileExistsError:
-            os.remove(ev3_pyfile)
-            continue
+except speechrec.UnknownValueError:
+    print(f"**{red}Google Speech Recognition could not understand audio{end}**")
+except speechrec.RequestError as e:
+    print(f"**{red}Could not request results from Google Speech Recognition service{end}**")
