@@ -1,4 +1,4 @@
-import speech_recognition as speechrec
+import speech_recognition as s_rec
 import os
 
 # The speech that is expected to be said some speech in the lists
@@ -43,7 +43,7 @@ green = "\033[32m"
 red = "\033[31m"
 
 # obtain audio from the microphone
-reco = speechrec.Recognizer()
+reco = s_rec.Recognizer()
 
 
 # the usage of this fun is to open the file and write in it the proper script
@@ -62,7 +62,7 @@ def comparator(expected_speech, rec_speech, instructions):
 
 # recognize speech using Google Speech Recognition
 while stop_condition:
-    with speechrec.Microphone() as source:
+    with s_rec.Microphone() as source:
         print("Speak!")
         audio = reco.adjust_for_ambient_noise(source)
         audio = reco.listen(source)
@@ -72,10 +72,10 @@ while stop_condition:
         recognized_speech = recognized_speech.lower()
         print(f"{cyan}Recognized Speech: {recognized_speech}{end}")
 
-    except speechrec.UnknownValueError:
+    except s_rec.UnknownValueError:
         print(f"**{red}Google Speech Recognition could not understand audio{end}**")
         continue
-    except speechrec.RequestError as e:
+    except s_rec.RequestError:
         print(f"**{red}Could not request results from Google Speech Recognition service{end}**")
 
     # loop for comparing the recognized speech and making the decision
@@ -83,7 +83,7 @@ while stop_condition:
     try:
         for speech in expected_speechEXIT:
             if recognized_speech == speech:
-                print(f"\n**{red}the program has been stoped{end}**")
+                print(f"\n**{red}the program has been stopped{end}**")
                 stop_condition = False
     except NameError:
         continue
